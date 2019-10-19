@@ -15,7 +15,7 @@ const creds = new Creds();
 const func = new Functions();
 const inv = new Inventory();
 
-fixture `Invalid Login Tests`
+fixture `Bad User Tests`
   .page `https://www.saucedemo.com/`
   .beforeEach(async t => {
     await t
