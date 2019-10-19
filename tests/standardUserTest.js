@@ -26,17 +26,10 @@ fixture `Invalid Login Tests`
       .expect(func.getPageUrl()).eql(page.baseUrl)
     await t
       .expect(page.pageTitle.innerText).eql(page.homeTitle)
-  })
-  .afterEach(async t => {
-    await t
-      .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-    await t
-      .expect(page.pageTitle.innerText).eql(page.homeTitle)
   });
 
 
-
-test('Standard User', async t => {
+test('Standard User Login/Logout', async t => {
   await t
     .typeText(page.userName, creds.standard)
   await t
@@ -54,6 +47,60 @@ test('Standard User', async t => {
     .click(inv.menuButton)
   await t
     .click(inv.menuLogout)
+  await t
+    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+})
 
+
+test('Standard User Sort Products Dropdown', async t => {
+  await t
+    .typeText(page.userName, creds.standard)
+  await t
+    .typeText(page.passWord, creds.passWordAll)
+  await clickLogin(t)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+  await t
+    .expect(func.getPageUrl()).eql(inv.inventoryUrl)
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[0])
+  await t
+    .expect(inv.sortSelect.value).eql(inv.sortOptions[0]);
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[3])
+  await t
+    .expect(inv.sortSelect.value).eql(inv.sortOptions[3]);
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[0])
+  await t
+    .expect(inv.sortSelect.value).eql(inv.sortOptions[0]);
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[1])
+  await t
+    .expect(inv.sortSelect.value).eql(inv.sortOptions[1]);
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[2])
+  await t
+    .expect(inv.sortSelect.value).eql(inv.sortOptions[2]);
+  await t
+    .click(inv.menuButton)
+  await t
+    .click(inv.menuLogout)
+  await t
+    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
 
 })
