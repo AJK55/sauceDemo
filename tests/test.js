@@ -34,8 +34,6 @@ test('Home Page Locators + Blank Creds', async t => {
   await t
     .hover(page.botLogo)
   await t
-    .expect(page.loginBot)
-  await t
     .click(page.userName)
   await t
     .click(page.passWord)
