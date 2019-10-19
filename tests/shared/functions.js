@@ -9,6 +9,7 @@ import {
 export default class Functions {
   constructor() {
     this.getPageUrl = ClientFunction(() => window.location.href);
+
     this.randomCreds = function makeid(length) {
       var result = '';
       var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -18,5 +19,6 @@ export default class Functions {
       }
       return result;
     }
+
   }
 }

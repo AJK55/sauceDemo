@@ -18,5 +18,28 @@ export default class Inventory {
       this.menuLogout = Selector('#logout_sidebar_link'),
       this.menuReset = Selector('#logout_sidebar_link'),
     ]
+
+    this.cart = [
+      this.cartButton = Selector('#shopping_cart_container > a > svg > path')
+    ]
+
+    this.sort = [
+      this.sortSelect = Selector('#inventory_filter_container > select')
+    ]
+
+    this.sortItems = [
+      this.sortAZ = Selector('#inventory_filter_container > select > option:nth-child(1)'),
+      this.sortZA = Selector('#inventory_filter_container > select > option:nth-child(2)'),
+      this.sortLOHI = Selector('#inventory_filter_container > select > option:nth-child(3)'),
+      this.sortHILO = Selector('#inventory_filter_container > select > option:nth-child(4)')
+    ]
+
+    this.sortOptions = [
+      this.az = 'az',
+      this.za = 'za',
+      this.lohi = 'lohi',
+      this.hilo = 'hilo'
+    ]
+
   }
 }
