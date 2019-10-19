@@ -17,9 +17,9 @@ fixture `Sauce Demo`
   .page `https://www.saucedemo.com/`
   .beforeEach(async t => {
     await t
-      .navigateTo(page.homeUrl)
+      .navigateTo(page.baseUrl)
     await t
-      .expect(func.getPageUrl()).eql(page.homeUrl)
+      .expect(func.getPageUrl()).eql(page.baseUrl)
   });
 
 test('Home Page Title', async t => {
