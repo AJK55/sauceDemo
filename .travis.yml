@@ -4,6 +4,9 @@ node_js: "stable"
 before_install:
   - stty cols 80
 
+install:
+  - npm install testcafe
+
 dist: trusty
 sudo: required
 
