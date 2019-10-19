@@ -1,0 +1,15 @@
+{
+  "name": "sauceDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "testcafe chrome,firefox tests/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
