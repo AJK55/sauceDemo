@@ -6,8 +6,9 @@ export default class Page {
   constructor() {
 
     this.pageUrls = [
-this.homeUrl = `https://www.saucedemo.com/`,
-]
+this.baseUrl = `https://www.saucedemo.com/`,
+      this.baseIndexUrl = 'https://www.saucedemo.com/index.html',
+      ]
 
     this.pageTitles = [
     this.homeTitle = 'Swag Labs',
