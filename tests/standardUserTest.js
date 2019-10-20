@@ -32,10 +32,21 @@ fixture `Standard User Tests`
       .expect(func.getPageUrl()).eql(page.baseUrl)
     await t
       .expect(page.pageTitle.innerText).eql(page.homeTitle)
+  })
+  .afterEach(async t => {
+    await t
+      .click(inv.menuButton)
+    await t
+      .click(inv.menuLogout)
+    await t
+      .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+    await t
+      .expect(page.pageTitle.innerText).eql(page.homeTitle)
   });
 
 
 test('Standard User Login/Logout', async t => {
+  //beforeEach
   await standardLogin(t)
   await clickLogin(t)
   await t
@@ -46,18 +57,12 @@ test('Standard User Login/Logout', async t => {
     .click(inv.menuButton)
   await t
     .click(inv.menuClose)
-  await t
-    .click(inv.menuButton)
-  await t
-    .click(inv.menuLogout)
-  await t
-    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-  await t
-    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+  //afterEach
 })
 
 
 test('Standard User Sort Products Dropdown', async t => {
+  //beforeEach
   await standardLogin(t)
   await clickLogin(t)
   await t
@@ -94,53 +99,30 @@ test('Standard User Sort Products Dropdown', async t => {
     .click(inv.sortItems[2])
   await t
     .expect(inv.sortSelect.value).eql(inv.sortOptions[2]);
-  await t
-    .click(inv.menuButton)
-  await t
-    .click(inv.menuLogout)
-  await t
-    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-  await t
-    .expect(page.pageTitle.innerText).eql(page.homeTitle)
-
+  //afterEach
 });
 
 test('Loop Sort Items', async t => {
+  //beforeEach
   await standardLogin(t)
   await clickLogin(t)
   await loopsortItems(t)
-
-  await t
-    .click(inv.menuButton)
-  await t
-    .click(inv.menuLogout)
-  await t
-    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-  await t
-    .expect(page.pageTitle.innerText).eql(page.homeTitle)
-
+  //afterEach
 })
 
 test('Random Sort Items Select', async t => {
+  //beforeEach
   await standardLogin(t)
   await clickLogin(t)
   await t
     .click(inv.sortSelect)
   await t
     .click(inv.sortItems[Math.floor(Math.random() * inv.sortItems.length)])
-
-  await t
-    .click(inv.menuButton)
-  await t
-    .click(inv.menuLogout)
-  await t
-    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-  await t
-    .expect(page.pageTitle.innerText).eql(page.homeTitle)
-
+  //afterEach
 })
 
-test('Footeer Socials Hover Loop', async t => {
+test('Footer Socials Hover Loop', async t => {
+  //beforeEach
   await standardLogin(t)
   await clickLogin(t)
 
@@ -149,13 +131,5 @@ test('Footeer Socials Hover Loop', async t => {
     await t
       .hover(inv.footerSocials[i])
   }
-
-  await t
-    .click(inv.menuButton)
-  await t
-    .click(inv.menuLogout)
-  await t
-    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
-  await t
-    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+  //afterEach
 })
