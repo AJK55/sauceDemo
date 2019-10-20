@@ -4,6 +4,12 @@ import {
 import {
   clickLogin
 } from './shared/actions.js'
+import {
+  standardLogin
+} from './shared/actions.js'
+import {
+  loopsortItems
+} from './shared/actions.js'
 
 import Page from './shared/page.js'
 import Creds from './shared/creds.js'
@@ -30,10 +36,7 @@ fixture `Standard User Tests`
 
 
 test('Standard User Login/Logout', async t => {
-  await t
-    .typeText(page.userName, creds.standard)
-  await t
-    .typeText(page.passWord, creds.passWordAll)
+  await standardLogin(t)
   await clickLogin(t)
   await t
     .expect(page.pageTitle.innerText).eql(page.homeTitle)
@@ -55,10 +58,7 @@ test('Standard User Login/Logout', async t => {
 
 
 test('Standard User Sort Products Dropdown', async t => {
-  await t
-    .typeText(page.userName, creds.standard)
-  await t
-    .typeText(page.passWord, creds.passWordAll)
+  await standardLogin(t)
   await clickLogin(t)
   await t
     .expect(page.pageTitle.innerText).eql(page.homeTitle)
@@ -103,4 +103,59 @@ test('Standard User Sort Products Dropdown', async t => {
   await t
     .expect(page.pageTitle.innerText).eql(page.homeTitle)
 
+});
+
+test('Loop Sort Items', async t => {
+  await standardLogin(t)
+  await clickLogin(t)
+  await loopsortItems(t)
+
+  await t
+    .click(inv.menuButton)
+  await t
+    .click(inv.menuLogout)
+  await t
+    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+
+})
+
+test('Random Sort Items Select', async t => {
+  await standardLogin(t)
+  await clickLogin(t)
+  await t
+    .click(inv.sortSelect)
+  await t
+    .click(inv.sortItems[Math.floor(Math.random() * inv.sortItems.length)])
+
+  await t
+    .click(inv.menuButton)
+  await t
+    .click(inv.menuLogout)
+  await t
+    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+
+})
+
+test('Footeer Socials Hover Loop', async t => {
+  await standardLogin(t)
+  await clickLogin(t)
+
+  var i;
+  for (i = 0; i < inv.footerSocials.length; i++) {
+    await t
+      .hover(inv.footerSocials[i])
+  }
+
+  await t
+    .click(inv.menuButton)
+  await t
+    .click(inv.menuLogout)
+  await t
+    .expect(func.getPageUrl()).eql(page.baseIndexUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
 })
