@@ -41,5 +41,32 @@ export default class Inventory {
       this.hilo = 'hilo'
     ]
 
+    this.inventoryImgs = [
+      this.bikeLightImg = Selector("#item_0_img_link"),
+      this.boltTshirtImg = Selector("#item_1_img_link"),
+      this.onesieImg = Selector("#item_2_img_link"),
+      this.redTshirtImg = Selector("#item_3_img_link"),
+      this.backpackImg = Selector("#item_4_img_link"),
+      this.fleeceJacketImg = Selector("#item_5_img_link"),
+    ]
+
+    this.inventoryLinks = [
+      this.bikeLightLink = Selector("#item_0_title_link"),
+      this.boltTshirtLink = Selector("#item_1_title_link"),
+      this.onesieLink = Selector("#item_2_title_link"),
+      this.redTshirtLink = Selector("#item_3_title_link"),
+      this.backpackLink = Selector("#item_4_title_link"),
+      this.fleeceJacketLink = Selector("#item_5_title_link"),
+    ]
+
+    this.inventoryAddCart = [
+      this.bikeLightAdd = Selector("#inventory_container > div > div:nth-child(2) > div.pricebar > button"),
+      this.boltTshirtAdd = Selector("#inventory_container > div > div:nth-child(3) > div.pricebar > button"),
+      this.onesieAdd = Selector("#inventory_container > div > div:nth-child(5) > div.pricebar > button"),
+      this.redTshirtAdd = Selector("#inventory_container > div > div:nth-child(6) > div.pricebar > button"),
+      this.backpackAdd = Selector("#inventory_container > div > div:nth-child(1) > div.pricebar > button"),
+      this.fleeceJacketAdd = Selector("#inventory_container > div > div:nth-child(4) > div.pricebar > button"),
+    ]
+
   }
 }
