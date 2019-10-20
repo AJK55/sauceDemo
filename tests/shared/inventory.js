@@ -68,5 +68,11 @@ export default class Inventory {
       this.fleeceJacketAdd = Selector("#inventory_container > div > div:nth-child(4) > div.pricebar > button"),
     ]
 
+    this.footerSocials = [
+      this.twitter = Selector('li.social_twitter'),
+      this.facebook = Selector('li.social_facebook'),
+      this.linkedin = Selector('li.social_linkedin'),
+    ]
+
   }
 }
