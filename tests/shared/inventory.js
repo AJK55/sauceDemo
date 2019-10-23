@@ -42,21 +42,34 @@ export default class Inventory {
     ]
 
     this.inventoryImgs = [
-      this.bikeLightImg = Selector("#item_0_img_link"),
-      this.boltTshirtImg = Selector("#item_1_img_link"),
-      this.onesieImg = Selector("#item_2_img_link"),
-      this.redTshirtImg = Selector("#item_3_img_link"),
-      this.backpackImg = Selector("#item_4_img_link"),
-      this.fleeceJacketImg = Selector("#item_5_img_link"),
+      this.bikeLightImg = Selector("#inventory_container > div > div:nth-child(2) > div.inventory_item_img"),
+      this.boltTshirtImg = Selector("#inventory_container > div > div:nth-child(3) > div.inventory_item_img"),
+      this.onesieImg = Selector("#inventory_container > div > div:nth-child(5) > div.inventory_item_img"),
+      this.redTshirtImg = Selector("#inventory_container > div > div:nth-child(6) > div.inventory_item_img"),
+      this.backpackImg = Selector("#inventory_container > div > div:nth-child(1) > div.inventory_item_img"),
+      this.fleeceJacketImg = Selector("#inventory_container > div > div:nth-child(4) > div.inventory_item_img"),
     ]
 
     this.inventoryLinks = [
-      this.bikeLightLink = Selector("#item_0_title_link"),
-      this.boltTshirtLink = Selector("#item_1_title_link"),
-      this.onesieLink = Selector("#item_2_title_link"),
-      this.redTshirtLink = Selector("#item_3_title_link"),
-      this.backpackLink = Selector("#item_4_title_link"),
-      this.fleeceJacketLink = Selector("#item_5_title_link"),
+      this.bikeLightLink = Selector("#item_0_title_link > div"),
+      this.boltTshirtLink = Selector("#item_1_title_link > div"),
+      this.onesieLink = Selector("#item_2_title_link > div"),
+      this.redTshirtLink = Selector("#item_3_title_link > div"),
+      this.backpackLink = Selector("#item_4_title_link > div"),
+      this.fleeceJacketLink = Selector("#item_5_title_link > div"),
+    ]
+
+    this.productPageUrls = [
+      this.bikeLightUrl = 'https://www.saucedemo.com/inventory-item.html?id=0',
+      this.boltTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=1',
+      this.onesieUrl = 'https://www.saucedemo.com/inventory-item.html?id=2',
+      this.redTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=3',
+      this.backpackUrl = 'https://www.saucedemo.com/inventory-item.html?id=4',
+      this.fleeceJacketUrl = 'https://www.saucedemo.com/inventory-item.html?id=5',
+    ]
+
+    this.productPageBackButton = [
+      this.prodPageBack = Selector("#inventory_item_container > div > button"),
     ]
 
     this.inventoryAddCart = [
@@ -73,6 +86,7 @@ export default class Inventory {
       this.facebook = Selector('li.social_facebook'),
       this.linkedin = Selector('li.social_linkedin'),
     ]
+
 
   }
 }

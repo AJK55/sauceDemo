@@ -8,6 +8,7 @@ import {
 
 export default class Functions {
   constructor() {
+
     this.getPageUrl = ClientFunction(() => window.location.href);
 
     this.randomCreds = function makeid(length) {
@@ -19,6 +20,8 @@ export default class Functions {
       }
       return result;
     }
+
+    this.goBack = ClientFunction(() => window.history.back());
 
   }
 }
