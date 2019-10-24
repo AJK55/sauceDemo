@@ -61,7 +61,7 @@ test('Standard User Login/Logout', async t => {
 })
 
 
-test('Standard User Sort Products Dropdown', async t => {
+test.skip('Standard User Sort Products Dropdown', async t => {
   //beforeEach
   await standardLogin(t)
   await clickLogin(t)
