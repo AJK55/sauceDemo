@@ -81,6 +81,15 @@ export default class Inventory {
       this.fleeceJacketAdd = Selector("#inventory_container > div > div:nth-child(4) > div.pricebar > button"),
     ]
 
+    this.addCartButtonText = [
+      this.addToCartText = 'ADD TO CART',
+      this.removeText = 'REMOVE',
+    ]
+
+    this.cartBadgeCounter = [
+      this.cartCounter = Selector('#shopping_cart_container > a > span')
+    ]
+
     this.footerSocials = [
       this.twitter = Selector('li.social_twitter'),
       this.facebook = Selector('li.social_facebook'),
