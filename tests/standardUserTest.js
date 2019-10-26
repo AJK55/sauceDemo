@@ -32,6 +32,7 @@ fixture `Standard User Tests`
       .expect(func.getPageUrl()).eql(page.baseUrl)
     await t
       .expect(page.pageTitle.innerText).eql(page.homeTitle)
+    await standardLogin(t)
   })
   .afterEach(async t => {
     await t
@@ -47,8 +48,6 @@ fixture `Standard User Tests`
 
 test('Standard User Login/Logout', async t => {
   //beforeEach
-  await standardLogin(t)
-  await clickLogin(t)
   await t
     .expect(page.pageTitle.innerText).eql(page.homeTitle)
   await t
@@ -63,8 +62,6 @@ test('Standard User Login/Logout', async t => {
 
 test('Standard User Sort Products Dropdown', async t => {
   //beforeEach
-  await standardLogin(t)
-  await clickLogin(t)
   await t
     .expect(page.pageTitle.innerText).eql(page.homeTitle)
   await t
@@ -104,16 +101,12 @@ test('Standard User Sort Products Dropdown', async t => {
 
 test('Loop Sort Items', async t => {
   //beforeEach
-  await standardLogin(t)
-  await clickLogin(t)
   await loopsortItems(t)
   //afterEach
 })
 
 test('Random Sort Items Select', async t => {
   //beforeEach
-  await standardLogin(t)
-  await clickLogin(t)
   await t
     .click(inv.sortSelect)
   await t
@@ -123,8 +116,6 @@ test('Random Sort Items Select', async t => {
 
 test('Footer Socials Hover Loop', async t => {
   //beforeEach
-  await standardLogin(t)
-  await clickLogin(t)
 
   var i;
   for (i = 0; i < inv.footerSocials.length; i++) {

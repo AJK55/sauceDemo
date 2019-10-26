@@ -1,27 +1,32 @@
 import {
   Selector
 } from 'testcafe';
-import {
-  clickLogin
-} from './shared/actions.js'
+//import {
+//  clickLogin
+//} from './shared/actions.js'
 import {
   standardLogin
 } from './shared/actions.js'
+//import {
+//  loopsortItems
+//} from './shared/actions.js'
 import {
-  loopsortItems
+  goToCartPg
 } from './shared/actions.js'
 
 import Page from './shared/page.js'
-import Creds from './shared/creds.js'
+//import Creds from './shared/creds.js'
 import Functions from './shared/functions.js'
 import Inventory from './shared/inventory.js'
+import Cart from './shared/cart.js'
 
 const page = new Page();
-const creds = new Creds();
+//const creds = new Creds();
 const func = new Functions();
 const inv = new Inventory();
+const cart = new Cart();
 
-fixture `Standard User Tests - Item and Cart Testing`
+fixture `Testing of Cart Page Functionality`
   .page `https://www.saucedemo.com/`
   .beforeEach(async t => {
     await t
@@ -33,8 +38,6 @@ fixture `Standard User Tests - Item and Cart Testing`
     await t
       .expect(page.pageTitle.innerText).eql(page.homeTitle)
     await standardLogin(t)
-    await clickLogin(t)
-
   })
   .afterEach(async t => {
     await t
@@ -47,194 +50,62 @@ fixture `Standard User Tests - Item and Cart Testing`
       .expect(page.pageTitle.innerText).eql(page.homeTitle)
   });
 
+test('Login and Go to Cart Page', async t => {
+  await t
+    .expect(func.getPageUrl()).eql(inv.inventoryUrl)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+  await goToCartPg(t)
 
-test("Hover Product Images Loop", async t => {
+});
+
+test('Footer Socials Hover Loop Cart Page', async t => {
+  //beforeEach
+  await goToCartPg(t)
 
   var i;
-  for (i = 0; i < inv.inventoryImgs.length; i++) {
+  for (i = 0; i < inv.footerSocials.length; i++) {
     await t
-      .hover(inv.inventoryImgs[i])
+      .hover(inv.footerSocials[i])
+  }
+  //afterEach
+});
+
+
+test('Hover Page Contents Sections', async t => {
+
+  await goToCartPg(t)
+
+  var i;
+  for (i = 0; i < cart.pageContents.length; i++) {
+    await t
+      .hover(cart.pageContents[i])
   }
 });
 
-test("Hover Product Links Loop", async t => {
+test('Validate Contents Text', async t => {
+  await goToCartPg(t)
+  await t
+    .expect(cart.yourCart.innerText).eql(cart.yourCartText)
+    .expect(cart.qtyCart.innerText).eql(cart.qtyText)
+    .expect(cart.description.innerText).eql(cart.descriptionText)
+});
 
-  var i;
-  for (i = 0; i < inv.inventoryLinks.length; i++) {
-    await t
-      .hover(inv.inventoryLinks[i])
-  }
+
+test('Continue Shopping Button Back to Inventory Page', async t => {
+  await goToCartPg(t)
+  await t
+    .expect(cart.cShopButton.innerText).eql(cart.cShopText)
+  await t
+    .click(cart.cShopButton)
+    .expect(func.getPageUrl()).eql(inv.inventoryUrl)
+
 })
 
-test("Hover Product 'Add To Cart' Loop", async t => {
-
-  var i;
-  for (i = 0; i < inv.inventoryAddCart.length; i++) {
-    await t
-      .hover(inv.inventoryAddCart[i])
-  }
-})
-
-test("Click Product Img, Then Click Back", async t => {
+test('Hover over Checkout Button', async t => {
+  await goToCartPg(t)
   await t
-    .click(inv.bikeLightImg)
+    .expect(cart.checkoutButton.innerText).eql(cart.checkoutText)
   await t
-    .expect(func.getPageUrl()).eql(inv.bikeLightUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.boltTshirtImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.boltTshirtUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.onesieImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.onesieUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.redTshirtImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.redTshirtUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.backpackImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.backpackUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.fleeceJacketImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.fleeceJacketUrl)
-  await func.goBack()
-})
-
-test("Click Product Img, Then Click Back Button on Page", async t => {
-  await t
-    .click(inv.bikeLightImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.bikeLightUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.boltTshirtImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.boltTshirtUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.onesieImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.onesieUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.redTshirtImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.redTshirtUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.backpackImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.backpackUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.fleeceJacketImg)
-  await t
-    .expect(func.getPageUrl()).eql(inv.fleeceJacketUrl)
-  await t
-    .click(inv.prodPageBack)
-})
-
-test("Click Product Link, Then Click Back Function", async t => {
-  await t
-    .click(inv.bikeLightLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.bikeLightUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.boltTshirtLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.boltTshirtUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.onesieLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.onesieUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.redTshirtLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.redTshirtUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.backpackLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.backpackUrl)
-  await func.goBack()
-
-  await t
-    .click(inv.fleeceJacketLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.fleeceJacketUrl)
-  await func.goBack()
-})
-
-test("Click Product Link, Then Click Back Button on Page", async t => {
-  await t
-    .click(inv.bikeLightLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.bikeLightUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.boltTshirtLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.boltTshirtUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.onesieLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.onesieUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.redTshirtLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.redTshirtUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.backpackLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.backpackUrl)
-  await t
-    .click(inv.prodPageBack)
-
-  await t
-    .click(inv.fleeceJacketLink)
-  await t
-    .expect(func.getPageUrl()).eql(inv.fleeceJacketUrl)
-  await t
-    .click(inv.prodPageBack)
+    .hover(cart.checkoutButton)
 })
