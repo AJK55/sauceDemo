@@ -100,7 +100,7 @@ test('Continue Shopping Button Back to Inventory Page', async t => {
     .click(cart.cShopButton)
     .expect(func.getPageUrl()).eql(inv.inventoryUrl)
 
-})
+});
 
 test('Hover over Checkout Button', async t => {
   await goToCartPg(t)
@@ -108,4 +108,78 @@ test('Hover over Checkout Button', async t => {
     .expect(cart.checkoutButton.innerText).eql(cart.checkoutText)
   await t
     .hover(cart.checkoutButton)
+});
+
+test('Add One Backpack Item to Cart', async t => {
+  await t
+    .expect(inv.cartCounter.exists).notOk();
+  //couinter is hidden if no items added to cart
+  await t
+    .expect(inv.backpackAdd.innerText).eql(inv.addToCartText)
+  await t
+    .click(inv.backpackAdd)
+  await t
+    .expect(inv.backpackAdd.innerText).eql(inv.removeText)
+  await t
+    .hover(inv.cartCounter)
+  await t
+    .expect(inv.cartCounter.exists).ok();
+  await t
+    .expect(inv.cartCounter.innerText).eql('1')
+  await t
+    .click(inv.cartButton)
+  await t
+    .expect(func.getPageUrl()).eql(cart.cartUrl)
+  await func.goBack()
+  await t
+    .click(inv.cartCounter)
+  await t
+    .expect(func.getPageUrl()).eql(cart.cartUrl)
+  await t
+    .click(cart.backPackRemoveButton)
+  await t
+    .expect(inv.cartCounter.exists).notOk();
+});
+
+test('Loop Through Adds, Counting', async t => {
+  await t
+    .expect(inv.cartCounter.exists).notOk()
+
+  var i;
+  for (i = 0; i < inv.inventoryAddCart.length; i++) {
+    await t
+      .click(inv.inventoryAddCart[i])
+  }
+
+  await t
+    .expect(inv.cartCounter.exists).ok();
+  await t
+    .expect(inv.cartCounter.innerText).eql('6')
+});
+
+test('Loop Through Adds, Remove From Cart', async t => {
+  await t
+    .expect(inv.cartCounter.exists).notOk()
+
+  var i;
+  for (i = 0; i < inv.inventoryAddCart.length; i++) {
+    await t
+      .click(inv.inventoryAddCart[i])
+  }
+
+  await t
+    .click(inv.cartButton)
+  await t
+    .expect(inv.cartCounter.exists).ok();
+  await t
+    .expect(inv.cartCounter.innerText).eql('6')
+
+  var r;
+  for (r = 0; r < cart.cartRemoveButtons.length; r++) {
+    await t
+      .click(cart.cartRemoveButtons[r])
+  }
+
+  await t
+    .expect(inv.cartCounter.exists).notOk()
 })
