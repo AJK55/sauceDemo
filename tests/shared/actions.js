@@ -44,3 +44,20 @@ export async function goToCartPg(t) {
   await t
     .expect(func.getPageUrl()).eql(cart.cartUrl)
 };
+
+export async function addRandomProduct(t) {
+  await t
+    .expect(inv.cartCounter.exists).notOk()
+  await t
+    .click(inv.inventoryAddCart[Math.floor(Math.random() * inv.inventoryAddCart.length)])
+  await t
+    .expect(inv.cartCounter.exists).ok()
+  await t
+    .expect(inv.cartCounter.innerText).eql('1')
+  await t
+    .click(inv.cartCounter)
+  await t
+    .click(cart.checkoutButton)
+  await t
+    .expect(inv.cartCounter.innerText).eql('1')
+};
