@@ -22,14 +22,14 @@ import Creds from './shared/creds.js'
 import Functions from './shared/functions.js'
 import Inventory from './shared/inventory.js'
 import Cart from './shared/cart.js'
-import Checkout from './shared/checkout.js'
+import CO from './shared/cO.js'
 
 const page = new Page();
 const creds = new Creds();
 const func = new Functions();
 const inv = new Inventory();
 const cart = new Cart();
-const checkout = new Checkout();
+const co = new CO();
 
 fixture `Testing of Checkout Page Functionality`
   .page `https://www.saucedemo.com/`
@@ -59,9 +59,9 @@ fixture `Testing of Checkout Page Functionality`
 test('Checkout Page Element Check Adding Random Product', async t => {
   await addRandomProduct(t)
   await t
-    .hover(checkout.coYourInfo)
+    .hover(co.coYourInfo)
   await t
-    .expect(checkout.coYourInfo.innerText).eql(checkout.coYourInfoText)
+    .expect(co.coYourInfo.innerText).eql(co.coYourInfoText)
 
   var i;
   for (i = 0; i < inv.footerSocials.length; i++) {
@@ -70,23 +70,23 @@ test('Checkout Page Element Check Adding Random Product', async t => {
   }
 
   var b;
-  for (b = 0; b < checkout.buttons.length; b++) {
+  for (b = 0; b < co.buttons.length; b++) {
     await t
-      .hover(checkout.buttons[b])
+      .hover(co.buttons[b])
   }
 
   var f;
-  for (f = 0; f < checkout.formFields.length; f++) {
+  for (f = 0; f < co.formFields.length; f++) {
     await t
-      .hover(checkout.formFields[f])
+      .hover(co.formFields[f])
   }
 
   await t
-    .expect(checkout.firstName.getAttribute('placeholder')).eql(checkout.firstNamePH)
+    .expect(co.firstName.getAttribute('placeholder')).eql(co.firstNamePH)
   await t
-    .expect(checkout.lastname.getAttribute('placeholder')).eql(checkout.lastnamePH)
+    .expect(co.lastname.getAttribute('placeholder')).eql(co.lastnamePH)
   await t
-    .expect(checkout.zipCode.getAttribute('placeholder')).eql(checkout.zipCodePH)
+    .expect(co.zipCode.getAttribute('placeholder')).eql(co.zipCodePH)
 
 
 })
@@ -96,12 +96,12 @@ test('CheckOut Form Error Validation', async t => {
 
   await addRandomProduct(t)
   await t
-    .click(checkout.continue)
+    .click(co.continue)
   await t
-    .expect(checkout.errorContainer.innerText).eql(checkout.firstNameReq)
+    .expect(co.errorContainer.innerText).eql(co.firstNameReq)
   await t
-    .typeText(checkout.firstName, creds.firstNameText)
+    .typeText(co.firstName, creds.firstNameText)
   await t
-    .expect(checkout.firstName.getAttribute('value')).eql(creds.firstNameText)
+    .expect(co.firstName.getAttribute('value')).eql(creds.firstNameText)
   //continue going through error messages
 })
