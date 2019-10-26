@@ -182,4 +182,7 @@ test('Loop Through Adds, Remove From Cart', async t => {
 
   await t
     .expect(inv.cartCounter.exists).notOk()
+
+  await t
+    .click(cart.cShopButton)
 })
