@@ -8,10 +8,12 @@ import {
 import Page from './shared/page.js'
 import Creds from './shared/creds.js'
 import Functions from './shared/functions.js'
+import Inventory from './shared/inventory.js'
 
 const page = new Page();
 const creds = new Creds();
 const func = new Functions();
+const inv = new Inventory();
 
 fixture `Sauce Demo`
   .page `https://www.saucedemo.com/`

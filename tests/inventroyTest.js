@@ -252,3 +252,14 @@ test("Click Product Link, Then Click Back Button on Page", async t => {
     .click(inv.prodPageBack)
 
 })
+
+test('Validate Image SRC on Inventory page', async t => {
+  await t
+    .expect(inv.bikeLightItemImg.getAttribute('src')).eql(inv.bikeLightItemImgSrc)
+    .expect(inv.boltTshirtItemImg.getAttribute('src')).eql(inv.boltTshirtItemImgSrc)
+    .expect(inv.onesieItemImg.getAttribute('src')).eql(inv.onesieItemImgSrc)
+    .expect(inv.redTshirtItemImg.getAttribute('src')).eql(inv.redTshirtItemImgSrc)
+    .expect(inv.backpackItemImg.getAttribute('src')).eql(inv.backpackItemImgSrc)
+    .expect(inv.fleeceJacketItemImg.getAttribute('src')).eql(inv.fleeceJacketItemImgSrc)
+
+})
