@@ -11,29 +11,57 @@ export default class CO {
 
     this.pageUrls = [
       this.checkOutUrl = page.baseUrl + 'checkout-step-one.html',
+      this.checkOut2Url = page.baseUrl + 'checkout-step-two.html',
     ]
 
     this.pageContents = [
-  this.coYourInfo = Selector('#contents_wrapper > div.subheader'),
-]
+      this.coYourInfo = Selector('#contents_wrapper > div.subheader'),
+      this.qtyHeader = Selector('.cart_quantity_label'),
+      this.descHeader = Selector('.cart_desc_label'),
+      this.payInfoHeader = Selector('#checkout_summary_container > div > div.summary_info > div:nth-child(1)'),
+      this.summaryValHeader = Selector('#checkout_summary_container > div > div.summary_info > div:nth-child(2)'),
+      this.shipInfoHeader = Selector('#checkout_summary_container > div > div.summary_info > div:nth-child(3)'),
+      this.shipSumHeader = Selector('#checkout_summary_container > div > div.summary_info > div:nth-child(4)'),
+      this.subtotalHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_subtotal_label'),
+      this.taxHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_tax_label'),
+      this.totalHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_total_label'),
+
+        ]
 
     this.contentText = [
       this.coYourInfoText = 'Checkout: Your Information',
+      this.coOverviewText = 'Checkout: Overview',
+      this.qtyText = 'QTY',
+      this.descText = 'DESCRIPTION',
+      this.payInfoText = 'Payment Information:',
+      this.summaryValText = 'SauceCard',
+      this.shipInfoText = 'Shipping Information:',
+      this.shipSumText = 'FREE PONY EXPRESS DELIVERY!',
+      this.subtotalText = 'Item total:',
+      this.taxText = 'Tax:',
+      this.totalText = 'Total:',
+
     ]
 
     this.buttons = [
       this.cancel = Selector('.checkout_buttons > a'),
       this.continue = Selector('.checkout_buttons > input'),
+      ]
+
+    this.buttonsPage2 = [
+      this.cancelPage2 = Selector('#checkout_summary_container > div > div.summary_info > div.cart_footer > a.cart_cancel_link.btn_secondary'),
+      this.finishPage2 = Selector('#checkout_summary_container > div > div.summary_info > div.cart_footer > a.btn_action.cart_button'),
 ]
 
     this.buttonsText = [
       this.cancelText = 'CANCEL',
       this.continueText = 'CONTINUE',
+      this.finishText = 'FINISH'
     ]
 
     this.formFields = [
       this.firstName = Selector('#first-name'),
-      this.lastname = Selector('#last-name'),
+      this.lastName = Selector('#last-name'),
       this.zipCode = Selector('#postal-code'),
     ]
 
