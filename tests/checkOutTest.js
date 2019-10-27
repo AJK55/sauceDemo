@@ -84,7 +84,7 @@ test('Checkout Page Element Check Adding Random Product', async t => {
   await t
     .expect(co.firstName.getAttribute('placeholder')).eql(co.firstNamePH)
   await t
-    .expect(co.lastname.getAttribute('placeholder')).eql(co.lastnamePH)
+    .expect(co.lastName.getAttribute('placeholder')).eql(co.lastnamePH)
   await t
     .expect(co.zipCode.getAttribute('placeholder')).eql(co.zipCodePH)
 
@@ -103,5 +103,51 @@ test('CheckOut Form Error Validation', async t => {
     .typeText(co.firstName, creds.firstNameText)
   await t
     .expect(co.firstName.getAttribute('value')).eql(creds.firstNameText)
-  //continue going through error messages
+  await t
+    .click(co.continue)
+  await t
+    .expect(co.errorContainer.innerText).eql(co.lastNameReq)
+  await t
+    .typeText(co.lastName, creds.lastnameText)
+  await t
+    .expect(co.lastName.getAttribute('value')).eql(creds.lastnameText)
+  await t
+    .click(co.continue)
+  await t
+    .expect(co.errorContainer.innerText).eql(co.postCodeReq)
+  await t
+    .typeText(co.zipCode, creds.zipCodeText)
+  await t
+    .expect(co.zipCode.getAttribute('value')).eql(creds.zipCodeText)
+  await t
+    .click(co.continue)
+  await t
+    .expect(func.getPageUrl()).eql(co.checkOut2Url)
+  await t
+    .expect(page.pageTitle.innerText).eql(page.homeTitle)
+})
+
+test('Checkout Page 2 Element Validations', async t => {
+  await addRandomProduct(t)
+  await t
+    .typeText(co.firstName, creds.firstNameText)
+    .typeText(co.lastName, creds.lastnameText)
+    .typeText(co.zipCode, creds.zipCodeText)
+  await t
+    .click(co.continue)
+  await t
+    .expect(co.coYourInfo.innerText).eql(co.coOverviewText)
+    .expect(co.qtyHeader.innerText).eql(co.qtyText)
+    .expect(co.descHeader.innerText).eql(co.descText)
+    .expect(co.payInfoHeader.innerText).eql(co.payInfoText)
+    .expect(co.summaryValHeader.innerText).contains(co.summaryValText)
+    .expect(co.shipInfoHeader.innerText).eql(co.shipInfoText)
+    .expect(co.shipSumHeader.innerText).eql(co.shipSumText)
+    .expect(co.subtotalHeader.innerText).contains(co.subtotalText)
+    .expect(co.taxHeader.innerText).contains(co.taxText)
+    .expect(co.totalHeader.innerText).contains(co.totalText)
+    .expect(co.cancelPage2.innerText).eql(co.cancelText)
+    .expect(co.finishPage2.innerText).eql(co.finishText)
+
+
 })
