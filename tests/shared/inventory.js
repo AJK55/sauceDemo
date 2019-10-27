@@ -50,6 +50,24 @@ export default class Inventory {
       this.fleeceJacketImg = Selector("#inventory_container > div > div:nth-child(4) > div.inventory_item_img"),
     ]
 
+    this.inventoryItemImgs = [
+      this.bikeLightItemImg = Selector('#item_0_img_link > img'),
+      this.boltTshirtItemImg = Selector('#item_1_img_link > img'),
+      this.onesieItemImg = Selector('#item_2_img_link > img'),
+      this.redTshirtItemImg = Selector('#item_3_img_link > img'),
+      this.backpackItemImg = Selector('#item_4_img_link > img'),
+      this.fleeceJacketItemImg = Selector('#item_5_img_link > img'),
+    ]
+
+    this.inventoryItemImgsSrc = [
+      this.bikeLightItemImgSrc = './img/bike-light-1200x1500.jpg',
+      this.boltTshirtItemImgSrc = './img/bolt-shirt-1200x1500.jpg',
+      this.onesieItemImgSrc = './img/red-onesie-1200x1500.jpg',
+      this.redTshirtItemImgSrc = './img/red-tatt-1200x1500.jpg',
+      this.backpackItemImgSrc = './img/sauce-backpack-1200x1500.jpg',
+      this.fleeceJacketItemImgSrc = './img/sauce-pullover-1200x1500.jpg',
+    ]
+
     this.inventoryLinks = [
       this.bikeLightLink = Selector("#item_0_title_link > div"),
       this.boltTshirtLink = Selector("#item_1_title_link > div"),
@@ -60,7 +78,7 @@ export default class Inventory {
     ]
 
     this.productPageUrls = [
-      this.bikeLightUrl = 'https://www.saucedemo.com/inventory-item.html?id=0',
+      this.bikeLightUrl = 'https: //www.saucedemo.com/inventory-item.html?id=0',
       this.boltTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=1',
       this.onesieUrl = 'https://www.saucedemo.com/inventory-item.html?id=2',
       this.redTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=3',
