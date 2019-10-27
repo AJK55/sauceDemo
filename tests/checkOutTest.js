@@ -22,7 +22,7 @@ import Creds from './shared/creds.js'
 import Functions from './shared/functions.js'
 import Inventory from './shared/inventory.js'
 import Cart from './shared/cart.js'
-import CO from './shared/cO.js'
+import CO from './shared/cOut.js'
 
 const page = new Page();
 const creds = new Creds();
