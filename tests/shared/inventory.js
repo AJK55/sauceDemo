@@ -78,7 +78,7 @@ export default class Inventory {
     ]
 
     this.productPageUrls = [
-      this.bikeLightUrl = 'https: //www.saucedemo.com/inventory-item.html?id=0',
+      this.bikeLightUrl = 'https://www.saucedemo.com/inventory-item.html?id=0',
       this.boltTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=1',
       this.onesieUrl = 'https://www.saucedemo.com/inventory-item.html?id=2',
       this.redTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=3',
