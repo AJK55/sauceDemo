@@ -55,7 +55,7 @@ test('Problem User', async t => {
 
 
 
-test('Problem User Image Check - Should Fail', async t => {
+test.skip('Problem User Image Check - Should Fail', async t => {
   await t
     .typeText(page.userName, creds.problem)
   await t
