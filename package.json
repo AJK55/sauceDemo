@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "testcafe chrome tests/*"
+    "test": "testcafe chrome,firefox tests/*"
   },
   "keywords": [],
   "author": "",
