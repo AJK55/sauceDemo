@@ -7,8 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test-headless": "testcafe 'chrome:headless' tests/*",
-    "test": "testcafe chrome,firefox tests/*"
+    "test-headless": "testcafe 'chrome:headless','firefox:headless' tests/*",
+    "test": "testcafe chrome,firefox,'chrome:headless','firefox:headless' tests/*"
   },
   "keywords": [],
   "author": "",
