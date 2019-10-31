@@ -10,6 +10,7 @@ check out the scripts section for headless chrome
 1a.
 Using the Firefox addon in headless mode #
 Starting with version 56, Firefox can be used in “headless” mode, which is suitable for driving browser-based tests using Selenium and other tools. Headless mode can be enabled using the MOZ_HEADLESS environment variable:
+# Add to .travis.yml file
 
 env:
   global:
