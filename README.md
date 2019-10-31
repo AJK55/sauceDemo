@@ -7,6 +7,16 @@ https://www.saucedemo.com/index.html
 https://blog.usejournal.com/how-to-create-a-simple-and-efficient-testing-project-with-testcafe-1273486fd0be
 check out the scripts section for headless chrome
 
+1a.
+Using the Firefox addon in headless mode #
+Starting with version 56, Firefox can be used in “headless” mode, which is suitable for driving browser-based tests using Selenium and other tools. Headless mode can be enabled using the MOZ_HEADLESS environment variable:
+
+env:
+  global:
+    - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+
 2.
 add firefox to .travis.yml
 https://devexpress.github.io/testcafe/documentation/continuous-integration/travis.html
