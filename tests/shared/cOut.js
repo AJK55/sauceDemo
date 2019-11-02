@@ -12,6 +12,7 @@ export default class CO {
     this.pageUrls = [
       this.checkOutUrl = page.baseUrl + 'checkout-step-one.html',
       this.checkOut2Url = page.baseUrl + 'checkout-step-two.html',
+      this.checkOutCompleteUrl = page.baseUrl + 'checkout-complete.html',
     ]
 
     this.pageContents = [
@@ -25,6 +26,10 @@ export default class CO {
       this.subtotalHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_subtotal_label'),
       this.taxHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_tax_label'),
       this.totalHeader = Selector('#checkout_summary_container > div > div.summary_info > div.summary_total_label'),
+      this.finishHeader = Selector('#contents_wrapper > div.subheader'),
+      this.checkOutHeader = Selector('#checkout_complete_container > h2'),
+      this.checkOutCompleteHeader = Selector('#checkout_complete_container > div.complete-text'),
+      this.ponyExpress = Selector('#checkout_complete_container > div.pony_express')
 
         ]
 
@@ -40,6 +45,10 @@ export default class CO {
       this.subtotalText = 'Item total:',
       this.taxText = 'Tax:',
       this.totalText = 'Total:',
+      this.finishHeaderText = 'Finish',
+      this.checkOutHeaderText = 'THANK YOU FOR YOUR ORDER',
+      this.checkOutCompleteText = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!',
+      this.ponyExpressImage = '/img/pony-express.png',
 
     ]
 
@@ -80,6 +89,7 @@ export default class CO {
       this.lastNameReq = 'Error: Last Name is required',
       this.postCodeReq = 'Error: Postal Code is required',
     ]
+
 
   }
 }

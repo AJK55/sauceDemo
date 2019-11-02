@@ -77,6 +77,25 @@ export default class Inventory {
       this.fleeceJacketLink = Selector("#item_5_title_link > div"),
     ]
 
+    this.inventoryPriceLocator = [
+      this.backpackPriceLocator = Selector('#inventory_container > div > div:nth-child(1) > div.pricebar > div'),
+      this.boltTshirtPriceLocator = Selector('#inventory_container > div > div:nth-child(3) > div.pricebar > div'),
+      this.onsiePriceLocator = Selector('#inventory_container > div > div:nth-child(5) > div.pricebar > div'),
+      this.bikeLightPriceLocator = Selector('#inventory_container > div > div:nth-child(2) > div.pricebar > div'),
+      this.fleeceJacketPriceLocator = Selector('#inventory_container > div > div:nth-child(4) > div.pricebar > div'),
+      this.redTshirtPriceLocator = Selector('#inventory_container > div > div:nth-child(6) > div.pricebar > div'),
+
+    ]
+
+    this.inventoryPrices = [
+      this.bikeLightPrice = '$9.99',
+      this.boltTshirtPrice = '$15.99',
+      this.onesiePrice = '$7.99',
+      this.redTshirtPrice = '$15.99',
+      this.backpackPrice = '$29.99',
+      this.fleeceJacketPrice = '$49.99',
+    ]
+
     this.productPageUrls = [
       this.bikeLightUrl = 'https://www.saucedemo.com/inventory-item.html?id=0',
       this.boltTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=1',
