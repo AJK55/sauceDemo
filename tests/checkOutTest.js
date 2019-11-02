@@ -130,11 +130,15 @@ test('CheckOut Form Error Validation', async t => {
 test('Checkout Page 2 Element Validations', async t => {
   await addRandomProduct(t)
   await t
+    .expect(func.getPageUrl()).eql(co.checkOutUrl)
+  await t
     .typeText(co.firstName, creds.firstNameText)
     .typeText(co.lastName, creds.lastnameText)
     .typeText(co.zipCode, creds.zipCodeText)
   await t
     .click(co.continue)
+  await t
+    .expect(func.getPageUrl()).eql(co.checkOut2Url)
   await t
     .expect(co.coYourInfo.innerText).eql(co.coOverviewText)
     .expect(co.qtyHeader.innerText).eql(co.qtyText)
@@ -149,5 +153,28 @@ test('Checkout Page 2 Element Validations', async t => {
     .expect(co.cancelPage2.innerText).eql(co.cancelText)
     .expect(co.finishPage2.innerText).eql(co.finishText)
 
+})
 
+test('Complete Checkoput for Random Product', async t => {
+  await addRandomProduct(t)
+  await t
+    .expect(func.getPageUrl()).eql(co.checkOutUrl)
+  await t
+    .typeText(co.firstName, creds.firstNameText)
+    .typeText(co.lastName, creds.lastnameText)
+    .typeText(co.zipCode, creds.zipCodeText)
+  await t
+    .click(co.continue)
+  await t
+    .expect(func.getPageUrl()).eql(co.checkOut2Url)
+  await t
+    .click(co.finishPage2)
+  await t
+    .expect(func.getPageUrl()).eql(co.checkOutCompleteUrl)
+  await t
+    .expect(co.finishHeader.innerText).eql(co.finishHeaderText)
+    .expect(co.checkOutHeader.innerText).eql(co.checkOutHeaderText)
+    .expect(co.checkOutCompleteHeader.innerText).eql(co.checkOutCompleteText)
+  await t
+    .expect(co.ponyExpress.getStyleProperty('background-image')).contains(co.ponyExpressImage)
 })

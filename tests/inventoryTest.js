@@ -263,3 +263,13 @@ test('Validate Image SRC on Inventory page', async t => {
     .expect(inv.fleeceJacketItemImg.getAttribute('src')).eql(inv.fleeceJacketItemImgSrc)
 
 })
+
+test('Validate Inventory Prices', async t => {
+  await t
+    .expect(inv.backpackPriceLocator.innerText).eql(inv.backpackPrice)
+    .expect(inv.boltTshirtPriceLocator.innerText).eql(inv.boltTshirtPrice)
+    .expect(inv.onsiePriceLocator.innerText).eql(inv.onesiePrice)
+    .expect(inv.bikeLightPriceLocator.innerText).eql(inv.bikeLightPrice)
+    .expect(inv.fleeceJacketPriceLocator.innerText).eql(inv.fleeceJacketPrice)
+    .expect(inv.redTshirtPriceLocator.innerText).eql(inv.redTshirtPrice)
+})
