@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test-headless": "testcafe 'chrome:headless','firefox:headless' tests/*",
-    "test": "testcafe chrome,firefox,'chrome:emulation:device=iphone X','chrome:headless','firefox:headless' tests/*"
+    "test": "testcafe chrome,firefox,'chrome:headless','firefox:headless' tests/*"
   },
   "keywords": [],
   "author": "",
