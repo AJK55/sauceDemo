@@ -76,3 +76,70 @@ test.skip('Problem User Image Check - Should Fail', async t => {
     .expect(inv.fleeceJacketItemImg.getAttribute('src')).eql(inv.fleeceJacketItemImgSrc)
 
 })
+
+test('Locked Out User Test', async t => {
+  await t
+    .typeText(page.userName, creds.lockedOut)
+  await t
+    .typeText(page.passWord, creds.passWordAll)
+  await t
+    .click(page.loginButton)
+  await t
+    .expect(page.loginError.innerText).eql(page.userLocked)
+})
+
+test.skip('Performance Glitch User Test - Long Running', async t => {
+  await t
+    .typeText(page.userName, creds.perfGlitch)
+  await t
+    .typeText(page.passWord, creds.passWordAll)
+  await t
+    .click(page.loginButton)
+  await t
+    .click(inv.bikeLightImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.bikeLightUrl)
+  await t
+    .click(inv.prodPageBack)
+
+  await t
+    .click(inv.boltTshirtImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.boltTshirtUrl)
+  await t
+    .click(inv.prodPageBack)
+
+  await t
+    .click(inv.onesieImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.onesieUrl)
+  await t
+    .click(inv.prodPageBack)
+
+  await t
+    .click(inv.redTshirtImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.redTshirtUrl)
+  await t
+    .click(inv.prodPageBack)
+
+  await t
+    .click(inv.backpackImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.backpackUrl)
+  await t
+    .click(inv.prodPageBack)
+
+
+  await t
+    .click(inv.fleeceJacketImg)
+  await t
+    .expect(func.getPageUrl()).eql(inv.fleeceJacketUrl)
+  await t
+    .click(inv.prodPageBack)
+
+  await t
+    .click(inv.menuButton)
+  await t
+    .click(inv.menuLogout)
+})
