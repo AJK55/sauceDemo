@@ -42,67 +42,70 @@ export default class Inventory {
     ]
 
     this.inventoryImgs = [
+      this.backpackImg = Selector("#inventory_container > div > div:nth-child(1) > div.inventory_item_img"),
       this.bikeLightImg = Selector("#inventory_container > div > div:nth-child(2) > div.inventory_item_img"),
       this.boltTshirtImg = Selector("#inventory_container > div > div:nth-child(3) > div.inventory_item_img"),
+      this.fleeceJacketImg = Selector("#inventory_container > div > div:nth-child(4) > div.inventory_item_img"),
       this.onesieImg = Selector("#inventory_container > div > div:nth-child(5) > div.inventory_item_img"),
       this.redTshirtImg = Selector("#inventory_container > div > div:nth-child(6) > div.inventory_item_img"),
-      this.backpackImg = Selector("#inventory_container > div > div:nth-child(1) > div.inventory_item_img"),
-      this.fleeceJacketImg = Selector("#inventory_container > div > div:nth-child(4) > div.inventory_item_img"),
     ]
 
     this.inventoryItemImgs = [
+      this.backpackItemImg = Selector('#item_4_img_link > img'),
       this.bikeLightItemImg = Selector('#item_0_img_link > img'),
       this.boltTshirtItemImg = Selector('#item_1_img_link > img'),
+      this.fleeceJacketItemImg = Selector('#item_5_img_link > img'),
       this.onesieItemImg = Selector('#item_2_img_link > img'),
       this.redTshirtItemImg = Selector('#item_3_img_link > img'),
-      this.backpackItemImg = Selector('#item_4_img_link > img'),
-      this.fleeceJacketItemImg = Selector('#item_5_img_link > img'),
     ]
 
     this.inventoryItemImgsSrc = [
+      this.backpackItemImgSrc = './img/sauce-backpack-1200x1500.jpg',
       this.bikeLightItemImgSrc = './img/bike-light-1200x1500.jpg',
       this.boltTshirtItemImgSrc = './img/bolt-shirt-1200x1500.jpg',
+      this.fleeceJacketItemImgSrc = './img/sauce-pullover-1200x1500.jpg',
       this.onesieItemImgSrc = './img/red-onesie-1200x1500.jpg',
       this.redTshirtItemImgSrc = './img/red-tatt-1200x1500.jpg',
-      this.backpackItemImgSrc = './img/sauce-backpack-1200x1500.jpg',
-      this.fleeceJacketItemImgSrc = './img/sauce-pullover-1200x1500.jpg',
     ]
 
     this.inventoryLinks = [
+      this.backpackLink = Selector("#item_4_title_link > div"),
       this.bikeLightLink = Selector("#item_0_title_link > div"),
       this.boltTshirtLink = Selector("#item_1_title_link > div"),
+      this.fleeceJacketLink = Selector("#item_5_title_link > div"),
       this.onesieLink = Selector("#item_2_title_link > div"),
       this.redTshirtLink = Selector("#item_3_title_link > div"),
-      this.backpackLink = Selector("#item_4_title_link > div"),
-      this.fleeceJacketLink = Selector("#item_5_title_link > div"),
     ]
 
     this.inventoryPriceLocator = [
       this.backpackPriceLocator = Selector('#inventory_container > div > div:nth-child(1) > div.pricebar > div'),
-      this.boltTshirtPriceLocator = Selector('#inventory_container > div > div:nth-child(3) > div.pricebar > div'),
-      this.onsiePriceLocator = Selector('#inventory_container > div > div:nth-child(5) > div.pricebar > div'),
       this.bikeLightPriceLocator = Selector('#inventory_container > div > div:nth-child(2) > div.pricebar > div'),
+      this.boltTshirtPriceLocator = Selector('#inventory_container > div > div:nth-child(3) > div.pricebar > div'),
       this.fleeceJacketPriceLocator = Selector('#inventory_container > div > div:nth-child(4) > div.pricebar > div'),
+      this.onsiePriceLocator = Selector('#inventory_container > div > div:nth-child(5) > div.pricebar > div'),
       this.redTshirtPriceLocator = Selector('#inventory_container > div > div:nth-child(6) > div.pricebar > div'),
-
-    ]
+]
 
     this.inventoryPrices = [
+      this.backpackPrice = '$29.99',
       this.bikeLightPrice = '$9.99',
       this.boltTshirtPrice = '$15.99',
+      this.fleeceJacketPrice = '$49.99',
       this.onesiePrice = '$7.99',
       this.redTshirtPrice = '$15.99',
-      this.backpackPrice = '$29.99',
-      this.fleeceJacketPrice = '$49.99',
     ]
 
     this.productPageUrls = [
+      this.backpackUrl = 'https://www.saucedemo.com/inventory-item.html?id=4',
       this.bikeLightUrl = 'https://www.saucedemo.com/inventory-item.html?id=0',
       this.boltTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=1',
+      this.fleeceJacketUrl = 'https://www.saucedemo.com/inventory-item.html?id=5',
       this.onesieUrl = 'https://www.saucedemo.com/inventory-item.html?id=2',
       this.redTshirtUrl = 'https://www.saucedemo.com/inventory-item.html?id=3',
-      this.backpackUrl = 'https://www.saucedemo.com/inventory-item.html?id=4',
-      this.fleeceJacketUrl = 'https://www.saucedemo.com/inventory-item.html?id=5',
+    ]
+
+    this.productPagePrice = [
+      this.prodDetailPrice = Selector('#inventory_item_container > div > div > div > div.inventory_details_price'),
     ]
 
     this.productPageBackButton = [
@@ -110,12 +113,12 @@ export default class Inventory {
     ]
 
     this.inventoryAddCart = [
+      this.backpackAdd = Selector("#inventory_container > div > div:nth-child(1) > div.pricebar > button"),
       this.bikeLightAdd = Selector("#inventory_container > div > div:nth-child(2) > div.pricebar > button"),
       this.boltTshirtAdd = Selector("#inventory_container > div > div:nth-child(3) > div.pricebar > button"),
+      this.fleeceJacketAdd = Selector("#inventory_container > div > div:nth-child(4) > div.pricebar > button"),
       this.onesieAdd = Selector("#inventory_container > div > div:nth-child(5) > div.pricebar > button"),
       this.redTshirtAdd = Selector("#inventory_container > div > div:nth-child(6) > div.pricebar > button"),
-      this.backpackAdd = Selector("#inventory_container > div > div:nth-child(1) > div.pricebar > button"),
-      this.fleeceJacketAdd = Selector("#inventory_container > div > div:nth-child(4) > div.pricebar > button"),
     ]
 
     this.addCartButtonText = [
