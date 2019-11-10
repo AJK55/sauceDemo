@@ -273,3 +273,19 @@ test('Validate Inventory Prices', async t => {
     .expect(inv.fleeceJacketPriceLocator.innerText).eql(inv.fleeceJacketPrice)
     .expect(inv.redTshirtPriceLocator.innerText).eql(inv.redTshirtPrice)
 })
+
+test('Capture Prices from Inventory Page and Validate on Prod Page', async t => {
+  var i;
+  for (i = 0; i < inv.inventoryPriceLocator.length; i++) {
+    //    console.log(inv.inventoryPriceLocator[1].innerText)
+    await t
+      .expect(inv.inventoryPriceLocator[i].innerText).eql(inv.inventoryPrices[i])
+    await t
+      .click(inv.inventoryImgs[i])
+    await t
+      .expect(inv.prodDetailPrice.innerText).eql(inv.inventoryPrices[i])
+    await t
+      .click(inv.prodPageBack)
+  }
+
+})

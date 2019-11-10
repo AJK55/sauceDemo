@@ -149,15 +149,15 @@ test('Loop Through Adds, Counting', async t => {
   for (i = 0; i < inv.inventoryAddCart.length; i++) {
     await t
       .click(inv.inventoryAddCart[i])
+    await t
+      .expect(inv.cartCounter.exists).ok();
+    await t
+      .expect(inv.cartCounter.innerText).eql((i + 1).toString())
   }
 
-  await t
-    .expect(inv.cartCounter.exists).ok();
-  await t
-    .expect(inv.cartCounter.innerText).eql('6')
 });
 
-test('Loop Through Adds, Remove From Cart', async t => {
+test.only('Loop Through Adds, Remove From Cart', async t => {
   await t
     .expect(inv.cartCounter.exists).notOk()
 
@@ -165,6 +165,7 @@ test('Loop Through Adds, Remove From Cart', async t => {
   for (i = 0; i < inv.inventoryAddCart.length; i++) {
     await t
       .click(inv.inventoryAddCart[i])
+
   }
 
   await t
