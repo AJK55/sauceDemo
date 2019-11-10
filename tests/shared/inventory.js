@@ -130,11 +130,23 @@ export default class Inventory {
       this.cartCounter = Selector('#shopping_cart_container > a > span')
     ]
 
-    this.footerSocials = [
+    this.footers = [
       this.twitter = Selector('li.social_twitter'),
       this.facebook = Selector('li.social_facebook'),
       this.linkedin = Selector('li.social_linkedin'),
+      this.copy = Selector('body > footer > div.footer_copy'),
+      this.footerRobot = Selector('body > footer > div.footer_robot'),
     ]
+
+    this.footerContent = [
+      this.twitterImg = '/img/twitter.png',
+      this.facebookImg = '/img/facebook.png',
+      this.linkedinImg = '/img/linkedIn.png',
+      this.footerRobotImg = '/img/SwagBot_Footer_graphic.png',
+      this.copyTxt = '© 2019 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy',
+    ]
+
+
 
 
   }
