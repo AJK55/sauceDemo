@@ -64,9 +64,9 @@ test('Checkout Page Element Check Adding Random Product', async t => {
     .expect(co.coYourInfo.innerText).eql(co.coYourInfoText)
 
   var i;
-  for (i = 0; i < inv.footerSocials.length; i++) {
+  for (i = 0; i < inv.footers.length; i++) {
     await t
-      .hover(inv.footerSocials[i])
+      .hover(inv.footers[i])
   }
 
   var b;

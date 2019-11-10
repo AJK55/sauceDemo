@@ -64,9 +64,9 @@ test('Footer Socials Hover Loop Cart Page', async t => {
   await goToCartPg(t)
 
   var i;
-  for (i = 0; i < inv.footerSocials.length; i++) {
+  for (i = 0; i < inv.footers.length; i++) {
     await t
-      .hover(inv.footerSocials[i])
+      .hover(inv.footers[i])
   }
   //afterEach
 });

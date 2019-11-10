@@ -118,9 +118,18 @@ test('Footer Socials Hover Loop', async t => {
   //beforeEach
 
   var i;
-  for (i = 0; i < inv.footerSocials.length; i++) {
+  for (i = 0; i < inv.footers.length; i++) {
     await t
-      .hover(inv.footerSocials[i])
+      .hover(inv.footers[i])
   }
   //afterEach
+})
+
+test('Footer Image/Text Validation', async t => {
+  await t
+    .expect(inv.twitter.getStyleProperty('background-image')).contains(inv.twitterImg)
+    .expect(inv.facebook.getStyleProperty('background-image')).contains(inv.facebookImg)
+    .expect(inv.linkedin.getStyleProperty('background-image')).contains(inv.linkedinImg)
+    .expect(inv.footerRobot.getStyleProperty('background-image')).contains(inv.footerRobotImg)
+    .expect(inv.copy.innerText).eql(inv.copyTxt)
 })
