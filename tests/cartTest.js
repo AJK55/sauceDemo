@@ -157,7 +157,7 @@ test('Loop Through Adds, Counting', async t => {
 
 });
 
-test.only('Loop Through Adds, Remove From Cart', async t => {
+test('Loop Through Adds, Remove From Cart', async t => {
   await t
     .expect(inv.cartCounter.exists).notOk()
 
