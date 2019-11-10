@@ -165,15 +165,18 @@ test('Loop Through Adds, Remove From Cart', async t => {
   for (i = 0; i < inv.inventoryAddCart.length; i++) {
     await t
       .click(inv.inventoryAddCart[i])
-
+    await t
+      .click(inv.cartButton)
+    await t
+      .expect(inv.cartCounter.exists).ok();
+    await t
+      .expect(inv.cartCounter.innerText).eql((i + 1).toString())
+    await t
+      .click(cart.cShopButton)
   }
 
   await t
     .click(inv.cartButton)
-  await t
-    .expect(inv.cartCounter.exists).ok();
-  await t
-    .expect(inv.cartCounter.innerText).eql('6')
 
   var r;
   for (r = 0; r < cart.cartRemoveButtons.length; r++) {
