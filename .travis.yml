@@ -18,9 +18,9 @@ addons:
     apt:
     update: true
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-     - google-chrome-stable
+    - google-chrome-stable
      
 before_script:
   - "export DISPLAY=:99.0"
