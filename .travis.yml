@@ -19,7 +19,8 @@ addons:
     sources:
      - google-chrome
     packages:
-     - google-chrome-stable
+     #- google-chrome-stable
+     - google-chrome-stable fluxbox
 
 before_script:
   - "export DISPLAY=:99.0"
