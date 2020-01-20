@@ -17,9 +17,10 @@ addons:
   firefox: latest
   apt:
     sources:
-     - google-chrome
+      - google-chrome
     packages:
-     - google-chrome: stable
+      - dpkg
+      - google-chrome-stable 
 
 before_script:
   - "export DISPLAY=:99.0"
